@@ -9,7 +9,7 @@ lspconfig.servers = {
     "lua_ls",
     -- "clangd",
     "gopls",
-    "hls",
+    -- "hls",
     -- "ols",
     "pyright",
 }
@@ -42,6 +42,9 @@ lspconfig.gopls.setup({
     on_attach = function(client, bufnr)
         client.server_capabilities.documentFormattingProvider = false
         client.server_capabilities.documentRangeFormattingProvider = false
+        vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
+        vim.keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
+        vim.keymap.set("n", "gi", vim.lsp.buf.implementation, bufopts)
         on_attach(client, bufnr)
     end,
     on_init = on_init,
@@ -60,15 +63,15 @@ lspconfig.gopls.setup({
         },
     },
 })
-lspconfig.hls.setup({
-    on_attach = function(client, bufnr)
-        client.server_capabilities.documentFormattingProvider = false
-        client.server_capabilities.documentRangeFormattingProvider = false
-        on_attach(client, bufnr)
-    end,
-    --     on_init = on_init,
-    capabilities = capabilities,
-})
+-- lspconfig.hls.setup({
+--     on_attach = function(client, bufnr)
+--         client.server_capabilities.documentFormattingProvider = false
+--         client.server_capabilities.documentRangeFormattingProvider = false
+--         on_attach(client, bufnr)
+--     end,
+--     --     on_init = on_init,
+--     capabilities = capabilities,
+-- })
 
 lspconfig.lua_ls.setup({
     on_attach = on_attach,
