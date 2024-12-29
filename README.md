@@ -1,4 +1,3 @@
-![Screenshot](nvchad-neovim.png)
 https://www.youtube.com/watch?v=TNRFegMqbWA
 # Installing NvChad Version 2.5
 ## Backup and remove old nvim config.
@@ -398,7 +397,6 @@ require("mason-nvim-lint").setup({
     automatic_installation = false,
 })
 ```
-![Screenshot](nvchad-cpp.png)
 https://www.youtube.com/watch?v=upeAH74q0q4
 # C and C++
 ## UPDATE
@@ -482,7 +480,6 @@ Add syntax highlighting for c, c++, make and cmake.
         "cpp",
         "make",
 ```
-![Screenshot](nvchad-go.png)
 https://www.youtube.com/watch?v=1vK3VCfKEyQ
 # Golang
 ## UPDATE
@@ -549,7 +546,6 @@ Add syntax highlighting for Go related filetypes.
         "gotmpl",
         "gowork",
 ```
-![Screenshot](nvchad-python.png)
 https://www.youtube.com/watch?v=4o6D1W0iW10
 # Python
 ## lspconfig
@@ -600,7 +596,6 @@ Add syntax highlighting for Python.
 ```lua
         "python",
 ```
-![Screenshot](nvchad-python-doc.png)
 https://www.youtube.com/watch?v=m0OobzFjEKE
 # Python (Dreams of Code)
 ## lspconfig
@@ -787,7 +782,6 @@ require("mason-nvim-dap").setup({
     automatic_installation = { exclude = {} },
 })
 ```
-![Screenshot](nvchad-odin.png)
 https://www.youtube.com/watch?v=-NMYeQGIN20
 # Odin
 ## lspconfig
@@ -806,7 +800,6 @@ Add syntax highlighting for Odin.
 ```lua
         "odin",
 ```
-![Screenshot](nvchad-haskell.png)
 https://www.youtube.com/watch?v=CcYQULn_M4s
 # Haskell
 ## lspconfig
