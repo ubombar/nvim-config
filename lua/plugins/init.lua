@@ -1,6 +1,11 @@
 return {
 
     {
+        "ellisonleao/glow.nvim",
+        config = true,
+        cmd = "Glow",
+    },
+    {
         "nvim-treesitter/nvim-treesitter",
         event = { "BufReadPre", "BufNewFile" },
         config = function()

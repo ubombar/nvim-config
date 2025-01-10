@@ -1,7 +1,7 @@
 local options = {
     formatters_by_ft = {
         lua = { "stylua" },
-        -- c = { "clang-format" },
+        c = { "clang-format" },
         -- cpp = { "clang-format" },
         go = { "gofumpt", "goimports-reviser", "golines" },
         -- haskell = { "fourmolu", "stylish-haskell" },
@@ -9,26 +9,30 @@ local options = {
     },
 
     formatters = {
-        -- -- C & C++
-        -- ["clang-format"] = {
-        --     prepend_args = {
-        --         "-style={ \
-        --                 IndentWidth: 4, \
-        --                 TabWidth: 4, \
-        --                 UseTab: Never, \
-        --                 AccessModifierOffset: 0, \
-        --                 IndentAccessModifiers: true, \
-        --                 PackConstructorInitializers: Never}",
-        --     },
-        -- },
+        -- C & C++
+        ["clang-format"] = {
+            prepend_args = {
+                "-style={ \
+                        IndentWidth: 4, \
+                        TabWidth: 4, \
+                        UseTab: Never, \
+                        AccessModifierOffset: 0, \
+                        IndentAccessModifiers: true, \
+                        PackConstructorInitializers: Never}",
+            },
+        },
         -- Golang
         ["goimports-reviser"] = {
-            prepend_args = { "-rm-unused" },
+            prepend_args = {
+                -- "-rm-unused"
+            },
         },
         golines = {
-            prepend_args = { "--max-len=80" },
+            prepend_args = {
+                -- "--max-len=80"
+            },
         },
-        -- -- Lua
+        -- Lua
         stylua = {
             prepend_args = {
                 "--column-width",

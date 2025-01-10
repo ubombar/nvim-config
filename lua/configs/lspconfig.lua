@@ -7,27 +7,27 @@ local lspconfig = require("lspconfig")
 -- list of all servers configured.
 lspconfig.servers = {
     "lua_ls",
-    -- "clangd",
+    "clangd",
     "gopls",
     -- "hls",
-    -- "ols",
-    "pyright",
-}
-
--- list of servers configured with default config.
-local default_servers = {
     -- "ols",
     -- "pyright",
 }
 
+-- list of servers configured with default config.
+-- local default_servers = {
+--     "ols",
+--     "pyright",
+-- }
+
 -- lsps with default config
-for _, lsp in ipairs(default_servers) do
-    lspconfig[lsp].setup({
-        on_attach = on_attach,
-        on_init = on_init,
-        capabilities = capabilities,
-    })
-end
+-- for _, lsp in ipairs(default_servers) do
+--     lspconfig[lsp].setup({
+--         on_attach = on_attach,
+--         on_init = on_init,
+--         capabilities = capabilities,
+--     })
+-- end
 
 lspconfig.clangd.setup({
     on_attach = function(client, bufnr)
@@ -82,7 +82,7 @@ lspconfig.lua_ls.setup({
         Lua = {
             diagnostics = {
                 enable = false, -- Disable all diagnostics from lua_ls
-                -- globals = { "vim" },
+                globals = { "vim" },
             },
             workspace = {
                 library = {
