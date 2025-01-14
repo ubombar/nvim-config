@@ -13,7 +13,7 @@ local options = {
         "haskell",
         "lua",
         "luadoc",
-        -- "make",
+        "make",
         "markdown",
         -- "odin",
         "printf",
