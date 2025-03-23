@@ -9,3 +9,9 @@ map("i", "jk", "<ESC>")
 
 map("n", "<leader>tc", ":tabclose<CR>", { noremap = true, silent = true })
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
+map(
+    "n",
+    "<leader>tt",
+    ":lua require('base46').toggle_transparency()<CR>",
+    { noremap = true, silent = true, desc = "Toggle Background Transparency" }
+)

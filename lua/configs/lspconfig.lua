@@ -4,6 +4,21 @@ local capabilities = require("nvchad.configs.lspconfig").capabilities
 
 local lspconfig = require("lspconfig")
 
+-- Set the Python path
+local venv_path = os.getenv("VIRTUAL_ENV")
+if not venv_path then
+    -- Try to detect a venv in the current workspace
+    local cwd = vim.fn.getcwd()
+    local paths = { cwd .. "/.venv/bin/python", cwd .. "/venv/bin/python" }
+    for _, p in ipairs(paths) do
+        if vim.fn.filereadable(p) == 1 then
+            venv_path = p
+            break
+        end
+    end
+end
+--
+-- local lspconfig = require "lspconfig"
 -- list of all servers configured.
 lspconfig.servers = {
     "lua_ls",
@@ -11,25 +26,32 @@ lspconfig.servers = {
     "gopls",
     -- "hls",
     -- "ols",
-    -- "pyright",
-}
-
--- list of servers configured with default config.
-local default_servers = {
-    -- "ols",
-    -- Setup the python server with defaul values
     "pyright",
 }
 
--- lsps with default config
-for _, lsp in ipairs(default_servers) do
-    lspconfig[lsp].setup({
-        on_attach = on_attach,
-        on_init = on_init,
-        capabilities = capabilities,
-    })
-end
+-- -- list of servers configured with default config.
+-- local default_servers = {
+--     -- "ols",
+--     -- Setup the python server with defaul values
+--     "pyright",
+-- }
 
+-- lsps with default config
+-- for _, lsp in ipairs(default_servers) do
+--     lspconfig[lsp].setup({
+--         on_attach = on_attach,
+--         on_init = on_init,
+--         capabilities = capabilities,
+--     })
+-- end
+
+lspconfig.pyright.setup({
+    settings = {
+        python = {
+            pythonPath = venv_path or "python", -- Fallback to system Python if no venv is found
+        },
+    },
+})
 lspconfig.clangd.setup({
     on_attach = function(client, bufnr)
         client.server_capabilities.documentFormattingProvider = false

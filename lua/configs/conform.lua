@@ -29,7 +29,7 @@ local options = {
         },
         golines = {
             prepend_args = {
-                -- "--max-len=80"
+                "--max-len=200",
             },
         },
         -- Lua
