@@ -48,7 +48,7 @@ map("n", "<leader>zq", function()
             )
         end
     end)
-end, { desc = "Run mycommand with input and open output" })
+end, { desc = "Create a question note for soa" })
 
 map("n", "<leader>zl", function()
     -- 2. Get current file path
@@ -73,7 +73,8 @@ map("n", "<leader>zl", function()
             vim.log.levels.ERROR
         )
     end
-end, { desc = "Run mycommand with input and open output" })
+end, { desc = "Sync Zotero literature note" })
+
 local function open_file_picker_in_floating_window(dir)
     -- Expand `~` to home directory
     dir = vim.fn.expand(dir)
